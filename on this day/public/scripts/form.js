@@ -13,10 +13,10 @@ monthSelect.addEventListener("change", function() {
     if (selectedMonth) {
         // Calculate number of days, considering leap year for February
         let numberOfDays = daysInMonth[selectedMonth];
-        if (selectedMonth === 2) { // February
-            const year = new Date().getFullYear(); // Current year
+        if (selectedMonth === 2) { 
+            const year = new Date().getFullYear();
             if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
-                numberOfDays = 29; // Leap year
+                numberOfDays = 29;
             }
         }
 

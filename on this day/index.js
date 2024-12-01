@@ -14,6 +14,15 @@ app.get("/", (req, res) => {
     res.render("index.ejs");
 });
 
+// search
+app.post("/search", async (req, res) => {
+    try {
+        console.log(req.body)
+      } catch (error) {
+        console.error(error);
+      }
+})
+
 app.listen(port, () => {
     console.log(`Server running on port: ${port}`);
 });
