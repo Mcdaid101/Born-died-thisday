@@ -11,7 +11,7 @@
         <div class="center-div">
             <h1>On this day</h1>
             <h2>Search for famous events and see who was born and died on any given day</h2>
-            <form >
+            <form action="/search" method="POST">
                 <label for="search-option">Search for: </label>
                 <select name="search-option" id="search-option">
                     <option>Events</option>
@@ -38,8 +38,10 @@
                 <select id="day" name="day">
                     <option value="">--Select a Day--</option>
                 </select>
+                <button type="submit">Submit</button>
         </form>
         </div>
     </div>
 </body>
+<script src="/scripts/form.js"></script>
 </html>
