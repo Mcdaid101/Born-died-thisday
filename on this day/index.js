@@ -17,9 +17,23 @@ app.get("/", (req, res) => {
 // search
 app.post("/search", async (req, res) => {
     try {
-        console.log(req.body)
+        const formSearch = req.body.search;
+        const searchLower = formSearch.toLowerCase();
+        const monthSearch = req.body.month;
+        const yearSearch = req.body.year;
+        const response = await axios.get(
+            `https://byabbe.se/on-this-day/${monthSearch}/${yearSearch}/${searchLower}.json`
+          );
+        const searchResult = response.data;
+        console.log(info);
+        res.render("result.ejs", 
+        {searchResult: result,
+                 month: month,
+                    year: year
+         });
       } catch (error) {
-        console.error(error);
+        console.error("Failed to make request:", error.message);
+        res.status(500).send("Internal Server Error");
       }
 })
 
