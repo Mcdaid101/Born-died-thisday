@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/styles/styles.css" rel="stylesheet">
+    <title>On this day</title>
+</head>
+<body>
+    <div class="main-div">
+        <div class="center-div">
+            <h1>On this day</h1>
+            <h2>Search for famous events and see who was born and died on any given day</h2>
+            <% if (result) {%>
+            <p>These famous<%= search %>'s took place on the <%= day  %><%= month %></p>
+            <% results.forEach(result => { %>
+            <p><%= result.year %></p>
+            <p><%= result.description %></p>
+            <p><%= result.wikipedia %></p>
+
+            <% }); %>
+            <% } else { %>
+                <p>Sorry we failed to find your result.</p>
+            <% } %>
+        </div>
+    </div>
+</body>
+<script src="/scripts/form.js"></script>
+</html>
