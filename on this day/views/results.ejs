@@ -11,17 +11,17 @@
         <div class="center-div">
             <h1>On this day</h1>
             <h2>Search for famous events and see who was born and died on any given day</h2>
-            <% if (result) {%>
-            <p>These famous<%= search %>'s took place on the <%= day  %><%= month %></p>
-            <% results.forEach(result => { %>
-            <p><%= result.year %></p>
-            <p><%= result.description %></p>
-            <p><%= result.wikipedia %></p>
-
-            <% }); %>
+            <% if (results && results.length > 0) { %>
+                <p>These famous <%= search %>'s took place on the <%= day %> of <%= month %></p>
+                <% results.forEach(result => { %>
+                <p><%= result.year %></p>
+                <p><%= result.description %></p>
+                <p><a href="<%= result.wikipedia %>" target="_blank">Read more</a></p>
+                <% }); %>
             <% } else { %>
                 <p>Sorry we failed to find your result.</p>
             <% } %>
+            
         </div>
     </div>
 </body>

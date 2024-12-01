@@ -24,13 +24,13 @@ app.post("/search", async (req, res) => {
         const response = await axios.get(
             `https://byabbe.se/on-this-day/${monthSearch}/${daySearch}/${searchLower}.json`
           );
-        const searchResult = response.data;
+        const searchResult = response.data[searchLower];
         console.log(searchResult);
-        res.render("result.ejs", 
-        {searchResult: result,
-                searchLower: search,
-                 month: month,
-                    day: day
+        res.render("results.ejs",  {
+            results: searchResult,
+            search: searchLower,
+            month: monthSearch,
+            day: daySearch
          });
       } catch (error) {
         console.error("Failed to make request:", error.message);
