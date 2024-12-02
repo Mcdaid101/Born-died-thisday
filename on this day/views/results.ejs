@@ -1,14 +1,30 @@
 <%- include("partials/header.ejs") %>
 
-            <% if (results && results.length > 0) { %>
-                <p>These famous <%= search %>'s took place on the <%= day %> of <%= month %></p>
-                <% results.forEach(result => { %>
-                <p>Year <%= result.year %></p>
-                <p><%= result.description %></p>
-                <p><a href="<%= result.wikipedia %>" target="_blank">Read more</a></p>
-                <% }); %>
-            <% } else { %>
-                <p>Sorry we failed to find your result.</p>
-            <% } %>
+<% if (results && results.length > 0) { %>
+    <p>Here are the <%= search %> that took place on the <%= day %> of <%= month %>:</p>
+    <% results.forEach(result => { %>
+        <% if (search === 'events') { %>
+            <p><%= result.description %></p>
+            <p>Year: <%= result.year %></p>
+        <% } else if (search === 'births') { %>
+            <p><%= result.description %></p>
+            <p>Born in <%= result.year %>:</p>
+        <% } else if (search === 'deaths') { %>
+            <p><%= result.description %></p>
+            <p>Died in <%= result.year %>:</p>
+        <% } %>
+
+        <% if (result.wikipedia && result.wikipedia.length > 0) { %>
+            <p>
+                <a href="<%= result.wikipedia[0].wikipedia %>" target="_blank">
+                    Read more: <%= result.wikipedia[0].title %>
+                </a>
+            </p>
+        <% } %>
+    <% }); %>
+        <% } else { %>
+            <p>No additional Wikipedia link available for this event.</p>
+        <% } %>
+
             
             <%- include("partials/footer.ejs") %>
