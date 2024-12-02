@@ -1,7 +1,7 @@
 <%- include("partials/header.ejs") %>
 
 <% if (results && results.length > 0) { %>
-    <p>Here are the <%= search %> that took place on the <%= day %> of <%= month %>:</p>
+    <h2>Here are the <%= search %> that took place on the <%= day %> of <%= month %>:</h2>
     <% results.forEach(result => { %>
         <% if (search === 'events') { %>
             <p><%= result.description %></p>
@@ -27,4 +27,4 @@
         <% } %>
 
             
-            <%- include("partials/footer.ejs") %>
+<%- include("partials/footer.ejs") %>
