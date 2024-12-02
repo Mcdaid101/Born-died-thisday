@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/styles/styles.css" rel="stylesheet">
-    <title>On this day</title>
-</head>
-<body>
-    <div class="main-div">
-        <div class="center-div">
-            <h1>On this day</h1>
-            <h2>Search for famous events and see who was born and died on any given day</h2>
+<%- include("partials/header.ejs") %>
             <form action="/search" method="POST">
                 <label for="search">Search for: </label>
                 <select name="search" id="search">
@@ -40,8 +28,4 @@
                 </select>
                 <button type="submit">Submit</button>
         </form>
-        </div>
-    </div>
-</body>
-<script src="/scripts/form.js"></script>
-</html>
+        <%- include("partials/footer.ejs") %>

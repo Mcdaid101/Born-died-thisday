@@ -25,7 +25,6 @@ app.post("/search", async (req, res) => {
             `https://byabbe.se/on-this-day/${monthSearch}/${daySearch}/${searchLower}.json`
           );
         const searchResult = response.data[searchLower];
-        console.log(searchResult);
         res.render("results.ejs",  {
             results: searchResult,
             search: searchLower,
