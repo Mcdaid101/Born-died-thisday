@@ -1,13 +1,22 @@
 <%- include("partials/header.ejs") %>
 <% if (results && results.length > 0) { %>
     <h2>Here are the <%= search %> that took place on the <%= day %> of <%= month %>:</h2>
-    <div class="results-grid">
+    <div class="results-grid fancy-font">
     <% results.forEach(result => { %>
         <% if (search === 'events') { %>
+            <div class="individual-result">
             <p><%= result.description %></p>
             <p>Year: <%= result.year %></p>
+            <% if (result.wikipedia && result.wikipedia.length > 0) { %>
+                <p>
+                    <a href="<%= result.wikipedia[0].wikipedia %>" target="_blank">
+                        Read more: <%= result.wikipedia[0].title %>
+                    </a>
+                </p>
+            <% } %>
+            </div>
         <% } else if (search === 'births') { %>
-        <div>
+        <div class="individual-result">
             <p><%= result.description %></p>
             <p>Born in <%= result.year %>:</p>
             <% if (result.wikipedia && result.wikipedia.length > 0) { %>
@@ -19,8 +28,16 @@
             <% } %>
         </div>
         <% } else if (search === 'deaths') { %>
+            <div class="individual-result">
             <p><%= result.description %></p>
             <p>Died in <%= result.year %>:</p>
+            <% if (result.wikipedia && result.wikipedia.length > 0) { %>
+                <p>
+                    <a href="<%= result.wikipedia[0].wikipedia %>" target="_blank">
+                        Read more: <%= result.wikipedia[0].title %>
+                    </a>
+                </p>
+            <% } %>
         <% } %>
     <% }); %>
         <% } else { %>
